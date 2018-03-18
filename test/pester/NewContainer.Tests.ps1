@@ -4,7 +4,12 @@
 
 #>
 
-. .\Utils.ps1
+if (( Get-Item ( Get-Location )).Name -eq "Docker-PowerShell" ) {
+	$pwd = Join-Path ( Get-Location ), "test/pester"
+} else {
+	$pwd = ( Get-Item $MyInvocation.InvocationName ).Directory.FullName
+}
+. ( Join-Path $pwd Utils.ps1 )
 
 function TestNewContainer
 {
