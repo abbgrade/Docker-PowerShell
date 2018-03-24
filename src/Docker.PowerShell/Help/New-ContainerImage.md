@@ -1,23 +1,27 @@
 ---
 external help file: Docker.PowerShell.dll-Help.xml
+Module Name: Docker
 schema: 2.0.0
 ---
 
 # New-ContainerImage
+
 ## SYNOPSIS
 Builds a new container image from a set of instructions in a Dockerfile.
 Aliased as "Build-ContainerImage".
+
 ## SYNTAX
 
 ```
-New-ContainerImage [[-Path] <String>] [-Repository <String>] [-Tag <String>] [-Isolation <IsolationType>]
- [-SkipCache] [-ForceRemoveIntermediateContainers] [-PreserveIntermediateContainers] [-HostAddress <String>]
- [-CertificateLocation <String>] [<CommonParameters>]
+New-ContainerImage [[-Path] <String>] [[-Repository] <String>] [[-Tag] <String>] [[-Isolation] <IsolationType>]
+ [-SkipCache] [-ForceRemoveIntermediateContainers] [-PreserveIntermediateContainers] [[-HostAddress] <String>]
+ [[-CertificateLocation] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Builds a new container image from a set of instructions in a Dockerfile.
 Aliased as "Build-ContainerImage".
+
 ## EXAMPLES
 
 ### Example 1
@@ -26,6 +30,7 @@ PS C:\> New-ContainerImage
 ```
 
 Creates a new container image from a Dockerfile in the current folder, "C:\".
+
 ### Example 2
 ```
 PS C:\> New-ContainerImage -Path "C:\myData\"
@@ -33,6 +38,7 @@ PS C:\> New-ContainerImage -Path "C:\myData\"
 
 Creates a new container image from a Dockerfile in the specified folder, "C:\myData".
  
+
 ## PARAMETERS
 
 ### -CertificateLocation
@@ -45,10 +51,10 @@ The location of the X509 certificate file named "key.pfx" that will be used for 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -64,10 +70,10 @@ Indicates that containers used for intermediate steps during build should always
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -83,10 +89,26 @@ The address of the docker daemon to connect to.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Isolation
+The isolation level used for containers during the build.
+
+```yaml
+Type: IsolationType
+Parameter Sets: (All)
+Aliases:
+Accepted values: Default, Process, HyperV
+
+Required: False
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -102,7 +124,7 @@ The location to the folder containing the Dockerfile or a path to a file to use 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 0
@@ -121,10 +143,10 @@ Indicates that the containers used for intermediate steps during build should no
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -140,10 +162,10 @@ Specifies the repository for the new image.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -159,10 +181,10 @@ Forces a rebuild of the image without using any of the layers on disk.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -178,25 +200,10 @@ Sets a tag for the new image. If no tag is specified, the image will be tagged "
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Isolation
-The isolation level used for containers during the build.
-
-```yaml
-Type: IsolationType
-Parameter Sets: (All)
-Aliases: 
-
-Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -204,6 +211,7 @@ Accept wildcard characters: False
 
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ### None

@@ -1,8 +1,3 @@
-task Build {
-    exec {
-
-    }
-}
 
 task Restore {
     dotnet restore
@@ -37,4 +32,8 @@ task Clean {
         ".\src\Tar\obj",
         ".\src\Tar\clr"
     ) | ForEach-Object { if ( Test-Path -Path $_ ) { Remove-item -Path $_ -Recurse -Verbose } }
+}
+
+task UpdateHelp {
+    Update-MarkdownHelp -Path .\src\Docker.PowerShell\Help
 }

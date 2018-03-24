@@ -1,28 +1,33 @@
 ---
 external help file: Docker.PowerShell.dll-Help.xml
-online version: 
+Module Name: Docker
+online version:
 schema: 2.0.0
 ---
 
 # Remove-ContainerNet
+
 ## SYNOPSIS
 Removes a network endpoint.
+
 ## SYNTAX
 
 ### Default (Default)
 ```
-Remove-ContainerNet [-Force] [-Id] <String[]> [-HostAddress <String>] [-CertificateLocation <String>]
+Remove-ContainerNet [-Force] [-Id] <String[]> [[-HostAddress] <String>] [[-CertificateLocation] <String>]
  [<CommonParameters>]
 ```
 
 ### NetworkObject
 ```
-Remove-ContainerNet [-Force] [-Network] <NetworkListResponse[]> [-HostAddress <String>]
- [-CertificateLocation <String>] [<CommonParameters>]
+Remove-ContainerNet [-Force]
+ [-Network] <System.Collections.Generic.IList`1[Docker.DotNet.Models.NetworkResponse]>
+ [[-HostAddress] <String>] [[-CertificateLocation] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Removes a network endpoint.
+
 ## EXAMPLES
 
 ### Example 1
@@ -31,6 +36,7 @@ PS C:\> Remove-ContainerNet -Id "Virtual Switch"
 ```
 
 Removes the network endpoint named "Virtual Switch"
+
 ## PARAMETERS
 
 ### -CertificateLocation
@@ -39,10 +45,10 @@ The location of the X509 certificate file named "key.pfx" that will be used for 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -54,10 +60,10 @@ Completes the operation without prompting for confirmation.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -69,10 +75,10 @@ The address of the docker daemon to connect to.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -84,7 +90,7 @@ The name or id of the network endpoint to remove.
 ```yaml
 Type: String[]
 Parameter Sets: Default
-Aliases: 
+Aliases:
 
 Required: True
 Position: 0
@@ -97,9 +103,9 @@ Accept wildcard characters: False
 The network endpont to remove.
 
 ```yaml
-Type: NetworkListResponse[]
+Type: System.Collections.Generic.IList`1[Docker.DotNet.Models.NetworkResponse]
 Parameter Sets: NetworkObject
-Aliases: 
+Aliases:
 
 Required: True
 Position: 0
@@ -110,10 +116,12 @@ Accept wildcard characters: False
 
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ### System.String[]
 Docker.DotNet.Models.NetworkListResponse[]
+
 ## OUTPUTS
 
 ### System.Object

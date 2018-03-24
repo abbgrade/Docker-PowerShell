@@ -1,31 +1,36 @@
 ---
 external help file: Docker.PowerShell.dll-Help.xml
+Module Name: Docker
 online version: https://github.com/Microsoft/Docker-PowerShell/tree/master/src/Docker.PowerShell/en-us/
 schema: 2.0.0
 ---
 
 # Start-ContainerProcess
+
 ## SYNOPSIS
 Starts a new process with the given command in the specified container.
 Aliased as "Exec-Container".
+
 ## SYNTAX
 
 ### Default (Default)
 ```
-Start-ContainerProcess [[-Command] <String[]>] [-Detached] [-Input] [-Terminal] [-Privileged] [-User <String>]
- [-ContainerIdOrName] <String> [-HostAddress <String>] [-CertificateLocation <String>] [<CommonParameters>]
+Start-ContainerProcess [[-Command] <String[]>] [-Detached] [-Input] [-Terminal] [-Privileged]
+ [[-User] <String>] [-ContainerIdOrName] <String> [[-HostAddress] <String>] [[-CertificateLocation] <String>]
+ [<CommonParameters>]
 ```
 
 ### ContainerObject
 ```
-Start-ContainerProcess [[-Command] <String[]>] [-Detached] [-Input] [-Terminal] [-Privileged] [-User <String>]
- [-Container] <ContainerListResponse> [-HostAddress <String>] [-CertificateLocation <String>]
- [<CommonParameters>]
+Start-ContainerProcess [[-Command] <String[]>] [-Detached] [-Input] [-Terminal] [-Privileged]
+ [[-User] <String>] [-Container] <ContainerListResponse> [[-HostAddress] <String>]
+ [[-CertificateLocation] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Starts a new process with the given command in the specified container.
 Aliased as "Exec-Container".
+
 ## EXAMPLES
 
 ### Example 1
@@ -34,6 +39,7 @@ PS C:\> Start-ContainerProcess -ContainerIdOrName myContainer -Command "c:\myTes
 ```
 
 Starts the command "c:\myTest.exe" in the container named "myContainer".
+
 ## PARAMETERS
 
 ### -CertificateLocation
@@ -42,10 +48,10 @@ The location of the X509 certificate file named "key.pfx" that will be used for 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -57,7 +63,7 @@ The command to be run as a new process in the container.
 ```yaml
 Type: String[]
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -72,102 +78,12 @@ The container in which the process will be started.
 ```yaml
 Type: ContainerListResponse
 Parameter Sets: ContainerObject
-Aliases: 
+Aliases:
 
 Required: True
 Position: 0
 Default value: None
 Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
-### -Detached
-If specified, just the container process object will be returned and the process will run asynchronously. Otherwise, STDOUT/STDERR will be connected and output of the command will be displayed.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: 
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -HostAddress
-The address of the docker daemon to connect to.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: 
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Privileged
-If specified, the process will be started in privileged mode.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: 
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -User
-A custom user name under which the process will be created.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: 
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Terminal
-If specified, terminal emulation will be used when starting the process.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: 
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Input
-Indicates that the STDIN of the process should be kept open.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: 
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -186,13 +102,105 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
+### -Detached
+If specified, just the container process object will be returned and the process will run asynchronously. Otherwise, STDOUT/STDERR will be connected and output of the command will be displayed.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Benannt
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -HostAddress
+The address of the docker daemon to connect to.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Benannt
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Input
+Indicates that the STDIN of the process should be kept open.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Benannt
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Privileged
+If specified, the process will be started in privileged mode.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Benannt
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Terminal
+If specified, terminal emulation will be used when starting the process.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Benannt
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -User
+A custom user name under which the process will be created.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Benannt
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ### System.String[]
 System.String
 Docker.DotNet.Models.ContainerListResponse
+
 ## OUTPUTS
 
 ### Docker.DotNet.Models.ContainerListResponse

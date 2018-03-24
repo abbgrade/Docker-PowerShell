@@ -78,16 +78,6 @@ FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact
 questions or comments.
 
 ## Compilation
-### Before Compiling: Git submodules for Docker.DotNet
-This project uses Docker.DotNet as a git submodule (`git submodule --help` to
-view manual pages for submodule).  When first starting a new clone of
-Docker.Powershell, this requires one-time initializtion of the submodule with
-`git submodule update --init` to prepare the directories used by the
-submodule. When making changes to Docker.PowerShell that use corresponding
-changes made to Docker.DotNet master branch, use `git submodule update --remote`
-to sync the submodule to the latest in master, and include the updated commit id
-for the submodule in the changes submitted to Docker.Powershell.
-
 ### Compiling with DotNet CLI
 To compile this project, you need the following:
 * A recent build of the [.NET Core SDK](https://github.com/dotnet/cli/releases)

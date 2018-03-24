@@ -1,26 +1,30 @@
 ---
 external help file: Docker.PowerShell.dll-Help.xml
+Module Name: Docker
 schema: 2.0.0
 ---
 
 # Get-ContainerImage
+
 ## SYNOPSIS
 Returns container images.
+
 ## SYNTAX
 
 ### Default (Default)
 ```
-Get-ContainerImage [[-ImageIdOrName] <String[]>] [-HostAddress <String>] [-CertificateLocation <String>]
+Get-ContainerImage [[-ImageIdOrName] <String[]>] [[-HostAddress] <String>] [[-CertificateLocation] <String>]
  [<CommonParameters>]
 ```
 
 ### AllImages
 ```
-Get-ContainerImage [-All] [-HostAddress <String>] [-CertificateLocation <String>] [<CommonParameters>]
+Get-ContainerImage [-All] [[-HostAddress] <String>] [[-CertificateLocation] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Returns container images.
+
 ## EXAMPLES
 
 ### Example 1
@@ -29,6 +33,7 @@ PS C:\> Get-ContainerImage
 ```
 
 Returns a list of container images. 
+
 ## PARAMETERS
 
 ### -All
@@ -41,10 +46,10 @@ Specifies that all images should be retrieved. Otherwise, intermediate images ar
 ```yaml
 Type: SwitchParameter
 Parameter Sets: AllImages
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -60,10 +65,10 @@ The location of the X509 certificate file named "key.pfx" that will be used for 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -79,10 +84,10 @@ The address of the docker daemon to connect to.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -105,6 +110,7 @@ Accept wildcard characters: False
 
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ### None

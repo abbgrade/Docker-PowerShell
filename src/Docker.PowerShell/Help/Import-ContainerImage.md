@@ -1,23 +1,27 @@
 ---
 external help file: Docker.PowerShell.dll-Help.xml
-online version: 
+Module Name: Docker
+online version:
 schema: 2.0.0
 ---
 
 # Import-ContainerImage
+
 ## SYNOPSIS
 Imports the container image, including all layers, from a single compressed file.
 Aliased to "Load-ContainerImage".
+
 ## SYNTAX
 
 ```
-Import-ContainerImage [-FilePath] <String[]> [-HostAddress <String>] [-CertificateLocation <String>]
+Import-ContainerImage [-FilePath] <String[]> [[-HostAddress] <String>] [[-CertificateLocation] <String>]
  [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Imports the container image, including all layers, from a single compressed file.
 Aliased to "Load-ContainerImage".
+
 ## EXAMPLES
 
 ### Example 1
@@ -26,6 +30,7 @@ PS C:\> Import-ContainerImage -FilePath c:\myImage.tar
 ```
 
 Imports the image from the file "c:\myImage.tar".
+
 ## PARAMETERS
 
 ### -CertificateLocation
@@ -34,10 +39,10 @@ The location of the X509 certificate file named "key.pfx" that will be used for 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -49,7 +54,7 @@ The path to the file to be imported.
 ```yaml
 Type: String[]
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 0
@@ -64,10 +69,10 @@ The address of the docker daemon to connect to.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -75,6 +80,7 @@ Accept wildcard characters: False
 
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ### None

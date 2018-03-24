@@ -1,23 +1,27 @@
 ---
 external help file: Docker.PowerShell.dll-Help.xml
-online version: 
+Module Name: Docker
+online version:
 schema: 2.0.0
 ---
 
 # Request-ContainerImage
+
 ## SYNOPSIS
 Downloads a container image matching the given repository and tag from the Docker registry.
 Aliased as "Pull-ContainerImage".
+
 ## SYNTAX
 
 ```
-Request-ContainerImage [-Repository] <String> [[-Tag] <String>] [-All] [-Authorization <AuthConfig>]
- [-HostAddress <String>] [-CertificateLocation <String>] [<CommonParameters>]
+Request-ContainerImage [-Repository] <String> [[-Tag] <String>] [-All] [[-Authorization] <AuthConfig>]
+ [[-HostAddress] <String>] [[-CertificateLocation] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Downloads a container image matching the given repository and tag from the Docker registry.
 Aliased as "Pull-ContainerImage".
+
 ## EXAMPLES
 
 ### Example 1
@@ -26,6 +30,7 @@ PS C:\> Request-ContainerImage -Repository "microsoft/nanoserver"
 ```
 
 Pulls the latest image from the repository "microsoft/nanoserver".
+
 ## PARAMETERS
 
 ### -All
@@ -34,10 +39,10 @@ If specified, Tag is ignored and all images matching the given Repository are do
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -49,10 +54,10 @@ A Docker.DotNet.Models.AuthConfig object containing authentication information f
 ```yaml
 Type: AuthConfig
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -64,10 +69,10 @@ The location of the X509 certificate file named "key.pfx" that will be used for 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -79,10 +84,10 @@ The address of the docker daemon to connect to.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -94,7 +99,7 @@ The repository of the desired image.  This may include a registry address from w
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 0
@@ -109,7 +114,7 @@ The tag specifying the image to download. If not provided, the "latest" image is
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -120,6 +125,7 @@ Accept wildcard characters: False
 
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ### System.String

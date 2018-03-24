@@ -1,27 +1,31 @@
 ---
 external help file: Docker.PowerShell.dll-Help.xml
+Module Name: Docker
 schema: 2.0.0
 ---
 
 # Remove-ContainerImage
+
 ## SYNOPSIS
 Removes a container image. 
+
 ## SYNTAX
 
 ### Default (Default)
 ```
-Remove-ContainerImage [-Force] [-ImageIdOrName] <String[]> [-HostAddress <String>]
- [-CertificateLocation <String>] [<CommonParameters>]
+Remove-ContainerImage [-Force] [-ImageIdOrName] <String[]> [[-HostAddress] <String>]
+ [[-CertificateLocation] <String>] [<CommonParameters>]
 ```
 
 ### ImageObject
 ```
-Remove-ContainerImage [-Force] [-Image] <ImagesListResponse[]> [-HostAddress <String>]
- [-CertificateLocation <String>] [<CommonParameters>]
+Remove-ContainerImage [-Force] [-Image] <ImagesListResponse[]> [[-HostAddress] <String>]
+ [[-CertificateLocation] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Removes a container image. 
+
 ## EXAMPLES
 
 ### Example 1
@@ -30,6 +34,7 @@ PS C:\> Remove-ContainerImage -ImageIdOrName 124dfe
 ```
 
 Removes the container with id "124dfe"
+
 ## PARAMETERS
 
 ### -CertificateLocation
@@ -42,10 +47,10 @@ The location of the X509 certificate file named "key.pfx" that will be used for 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -61,10 +66,10 @@ Forces the action without prompting for confirmation.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -80,10 +85,10 @@ The address of the docker daemon to connect to.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -99,7 +104,7 @@ The image that is to be removed.
 ```yaml
 Type: ImagesListResponse[]
 Parameter Sets: ImageObject
-Aliases: 
+Aliases:
 
 Required: True
 Position: 0
@@ -125,10 +130,12 @@ Accept wildcard characters: False
 
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ### System.String[]
 Docker.DotNet.Models.ImagesListResponse[]
+
 ## OUTPUTS
 
 ### System.Object

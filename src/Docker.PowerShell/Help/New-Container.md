@@ -1,35 +1,40 @@
 ---
 external help file: Docker.PowerShell.dll-Help.xml
+Module Name: Docker
 schema: 2.0.0
 ---
 
 # New-Container
+
 ## SYNOPSIS
 Creates a new container.
+
 ## SYNTAX
 
 ### Default (Default)
 ```
-New-Container [-Name <String>] [[-Command] <String[]>] [-Isolation <IsolationType>] [-Configuration <Config>]
- [-HostConfiguration <HostConfig>] [-Input] [-Terminal] [-ImageIdOrName] <String[]> [-HostAddress <String>]
- [-CertificateLocation <String>] [<CommonParameters>]
+New-Container [[-Name] <String>] [[-Command] <String[]>] [[-Isolation] <IsolationType>]
+ [[-Configuration] <Config>] [[-HostConfiguration] <HostConfig>] [-Input] [-Terminal]
+ [-ImageIdOrName] <String[]> [[-HostAddress] <String>] [[-CertificateLocation] <String>] [<CommonParameters>]
 ```
 
 ### ImageObject
 ```
-New-Container [-Name <String>] [[-Command] <String[]>] [-Isolation <IsolationType>] [-Configuration <Config>]
- [-HostConfiguration <HostConfig>] [-Input] [-Terminal] [-Image] <ImagesListResponse[]> [-HostAddress <String>]
- [-CertificateLocation <String>] [<CommonParameters>]
+New-Container [[-Name] <String>] [[-Command] <String[]>] [[-Isolation] <IsolationType>]
+ [[-Configuration] <Config>] [[-HostConfiguration] <HostConfig>] [-Input] [-Terminal]
+ [-Image] <ImagesListResponse[]> [[-HostAddress] <String>] [[-CertificateLocation] <String>]
+ [<CommonParameters>]
 ```
 
 ### ConfigObject
 ```
-New-Container -Configuration <Config> [-HostConfiguration <HostConfig>] [-HostAddress <String>]
- [-CertificateLocation <String>] [<CommonParameters>]
+New-Container [-Configuration] <Config> [[-HostConfiguration] <HostConfig>] [[-HostAddress] <String>]
+ [[-CertificateLocation] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Creates a new container.
+
 ## EXAMPLES
 
 ### Example 1
@@ -38,6 +43,7 @@ PS C:\> New-Container -ImageIdOrName 4179ed
 ```
 
 Creates a new container from the image with id "4179ed".
+
 ## PARAMETERS
 
 ### -CertificateLocation
@@ -50,10 +56,10 @@ The location of the X509 certificate file named "key.pfx" that will be used for 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -69,7 +75,7 @@ The command to be run in the new container.
 ```yaml
 Type: String[]
 Parameter Sets: Default, ImageObject
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -88,10 +94,10 @@ An instance of a Docker.DotNet.Models.Config object with desired configuration v
 ```yaml
 Type: Config
 Parameter Sets: Default, ImageObject
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -100,10 +106,10 @@ Accept wildcard characters: False
 ```yaml
 Type: Config
 Parameter Sets: ConfigObject
-Aliases: 
+Aliases:
 
 Required: True
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -119,10 +125,10 @@ The address of the docker daemon to connect to.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -138,10 +144,10 @@ A Docker.DotNet.Models.HostConfig object filled in with desired configuration va
 ```yaml
 Type: HostConfig
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -157,85 +163,12 @@ The image to create the new container from.
 ```yaml
 Type: ImagesListResponse[]
 Parameter Sets: ImageObject
-Aliases: 
+Aliases:
 
 Required: True
 Position: 0
 Default value: None
 Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
-### -Input
-Indicates that the stdin of the container should be kept open.
-
-
-
-
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: Default, ImageObject
-Aliases: 
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Isolation
-Indicates whether the container should be isolated as a Hyper-V Container. Available options are: HyperV, None, or Default.
-
-
-
-
-
-```yaml
-Type: IsolationType
-Parameter Sets: Default, ImageObject
-Aliases: 
-Accepted values: Default, None, HyperV
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Name
-The name for the new container.
-
-```yaml
-Type: String
-Parameter Sets: Default, ImageObject
-Aliases: 
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Terminal
-Enables terminal emulation in the new container.
-
-
-
-
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: Default, ImageObject
-Aliases: 
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -254,13 +187,88 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
+### -Input
+Indicates that the stdin of the container should be kept open.
+
+
+
+
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Default, ImageObject
+Aliases:
+
+Required: False
+Position: Benannt
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Isolation
+Indicates whether the container should be isolated as a Hyper-V Container. Available options are: HyperV, None, or Default.
+
+
+
+
+
+```yaml
+Type: IsolationType
+Parameter Sets: Default, ImageObject
+Aliases:
+Accepted values: Default, Process, HyperV
+
+Required: False
+Position: Benannt
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Name
+The name for the new container.
+
+```yaml
+Type: String
+Parameter Sets: Default, ImageObject
+Aliases:
+
+Required: False
+Position: Benannt
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Terminal
+Enables terminal emulation in the new container.
+
+
+
+
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Default, ImageObject
+Aliases:
+
+Required: False
+Position: Benannt
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ### System.String[]
 Docker.DotNet.Models.Config
 Docker.DotNet.Models.ImagesListResponse[]
+
 ## OUTPUTS
 
 ### Docker.DotNet.Models.ContainerListResponse

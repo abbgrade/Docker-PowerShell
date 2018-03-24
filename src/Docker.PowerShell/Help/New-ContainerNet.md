@@ -1,23 +1,27 @@
 ---
 external help file: Docker.PowerShell.dll-Help.xml
-online version: 
+Module Name: Docker
+online version:
 schema: 2.0.0
 ---
 
 # New-ContainerNet
+
 ## SYNOPSIS
 Creates a new network.
+
 ## SYNTAX
 
 ```
-New-ContainerNet [-HostAddress <String>] [-CertificateLocation <String>] [[-Name] <String>]
- [[-Driver] <String>] [-Internal] [-CheckDuplicate] [-EnableIPv6] [-IPAM <IPAM>]
- [-Options <System.Collections.Generic.IDictionary`2[System.String,System.String]>]
- [-Labels <System.Collections.Generic.IDictionary`2[System.String,System.String]>] [<CommonParameters>]
+New-ContainerNet [[-HostAddress] <String>] [[-CertificateLocation] <String>] [[-Name] <String>]
+ [[-Driver] <String>] [-Internal] [-CheckDuplicate] [-EnableIPv6] [[-IPAM] <IPAM>]
+ [[-Options] <System.Collections.Generic.IDictionary`2[System.String,System.String]>]
+ [[-Labels] <System.Collections.Generic.IDictionary`2[System.String,System.String]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Creates a new network.
+
 ## EXAMPLES
 
 ### Example 1
@@ -26,6 +30,7 @@ PS C:\> New-ContainerNet -Name myNet -Driver transparent
 ```
 
 Creates a new transparent network endpoing called "myNet".
+
 ### Example 2
 ```
 PS C:\> $opt = New-Object 'System.Collections.Generic.Dictionary[String,String]'
@@ -35,6 +40,7 @@ PS C:\> New-ContainerNet -Name externalNet -Driver transparent -Options $opt
 
 Creates a new transparent network called "externalNet" that is connected to the
 Hyper-V switch named "Virtual Switch".
+
 ## PARAMETERS
 
 ### -CertificateLocation
@@ -43,10 +49,10 @@ The location of the X509 certificate file named "key.pfx" that will be used for 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -58,10 +64,10 @@ Requests that the daemon check for networks with the same name.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -73,7 +79,7 @@ The name of the network driver plugin to use.  If not specified, uses the defaul
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -88,10 +94,10 @@ Enables IPv6 support on the network.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -103,10 +109,10 @@ The address of the docker daemon to connect to.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -118,10 +124,10 @@ A Docker.DotNet.Models.IPAM object containing optional custom IP scheme settings
 ```yaml
 Type: IPAM
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -133,10 +139,10 @@ If specified, external access to the network will be restricted.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -148,10 +154,10 @@ A dictionary containing labels to set on the network.
 ```yaml
 Type: System.Collections.Generic.IDictionary`2[System.String,System.String]
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -163,7 +169,7 @@ The network name to use.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 0
@@ -178,10 +184,10 @@ A dictionary containing driver specific network options.
 ```yaml
 Type: System.Collections.Generic.IDictionary`2[System.String,System.String]
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -189,6 +195,7 @@ Accept wildcard characters: False
 
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ### None

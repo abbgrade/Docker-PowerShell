@@ -1,20 +1,24 @@
 ---
 external help file: Docker.PowerShell.dll-Help.xml
+Module Name: Docker
 schema: 2.0.0
 ---
 
 # Get-Container
+
 ## SYNOPSIS
 Returns a list of containers.
+
 ## SYNTAX
 
 ```
-Get-Container [[-ContainerIdOrName] <String[]>] [-HostAddress <String>] [-CertificateLocation <String>]
+Get-Container [[-ContainerIdOrName] <String[]>] [[-HostAddress] <String>] [[-CertificateLocation] <String>]
  [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Returns a list of containers.
+
 ## EXAMPLES
 
 ### Example 1
@@ -23,6 +27,7 @@ PS C:\> Get-Container
 ```
 
 Retrieves a list of containers. 
+
 ## PARAMETERS
 
 ### -CertificateLocation
@@ -35,29 +40,10 @@ The location of the X509 certificate file named "key.pfx" that will be used for 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -HostAddress
-The address of the docker daemon to connect to.
-
-
-
-
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: 
-
-Required: False
-Position: Named
+Position: Benannt
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -78,8 +64,28 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
+### -HostAddress
+The address of the docker daemon to connect to.
+
+
+
+
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Benannt
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ### None

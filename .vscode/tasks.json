@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Run tests",
+            "label": "test",
             "type": "shell",
             "group": "test",
             "command": "Invoke-Pester -Script test/pester -PesterOption @{IncludeVSCodeMarker=$true}",
@@ -13,16 +13,22 @@
             ]
         },
         {
-            "label": "Clean build",
+            "label": "clean",
             "type": "shell",
             "command": "Invoke-Build Clean",
             "problemMatcher": []
         },
         {
-            "label": "Build",
+            "label": "build",
             "type": "shell",
             "group": "build",
             "command": "Invoke-Build Build",
+            "problemMatcher": []
+        },
+        {
+            "label": "update-help",
+            "type": "shell",
+            "command": "Invoke-Build UpdateHelp",
             "problemMatcher": []
         }
     ]
