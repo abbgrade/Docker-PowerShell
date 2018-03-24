@@ -40,6 +40,9 @@ namespace Docker.PowerShell.Cmdlets
 
                 using (var file = File.OpenRead(filePath))
                 {
+
+                    throw new System.NotImplementedException();
+                    /* FIXME
                     var loadTask = DkrClient.Miscellaneous.LoadImageFromTarball(file, new ImageLoadParameters { Quiet = false }, CmdletCancellationToken);
 
                     var messageWriter = new JsonMessageWriter(this);
@@ -79,6 +82,7 @@ namespace Docker.PowerShell.Cmdlets
                     {
                         throw new Exception("Could not find image, but no error was returned");
                     }
+                    */
                 }
             }
         }

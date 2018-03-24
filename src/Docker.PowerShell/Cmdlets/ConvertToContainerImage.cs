@@ -51,6 +51,9 @@ namespace Docker.PowerShell.Cmdlets
         {
             foreach (var id in ParameterResolvers.GetContainerIds(Container, ContainerIdOrName))
             {
+
+                throw new System.NotImplementedException();
+                /* FIXME
                 var commitResult = await DkrClient.Miscellaneous.CommitContainerChangesAsync(
                     new CommitContainerChangesParameters() {
                         ContainerID = id,
@@ -60,8 +63,8 @@ namespace Docker.PowerShell.Cmdlets
                         Author = Author,
                         Config = Configuration
                     });
-
                 WriteObject(await ContainerOperations.GetImageById(commitResult.ID, DkrClient));
+                */
             }
         }
 

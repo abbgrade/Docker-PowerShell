@@ -63,6 +63,8 @@ namespace Docker.PowerShell.Cmdlets
         {
             var id = ContainerIdOrName ?? Container.ID;
 
+            throw new System.NotImplementedException();
+            /* FIXME
             var execConfig = new ExecConfig()
             {
                 Cmd = Command,
@@ -89,6 +91,7 @@ namespace Docker.PowerShell.Cmdlets
                     await stream.CopyToConsoleAsync(Terminal, Input, CmdletCancellationToken);
                 }
             }
+            */
         }
 
         #endregion

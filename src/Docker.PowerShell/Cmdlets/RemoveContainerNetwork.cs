@@ -21,10 +21,14 @@ namespace Docker.PowerShell.Cmdlets
 
         protected override async Task ProcessRecordAsync()
         {
+
+            throw new System.NotImplementedException();
+            /* FIXME
             foreach (var id in ParameterResolvers.GetNetworkIds(Network, Id))
             {
                 await DkrClient.Networks.DeleteNetworkAsync(id);
             }
+            */
         }
 
         #endregion

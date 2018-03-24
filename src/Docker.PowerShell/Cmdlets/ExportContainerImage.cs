@@ -27,11 +27,15 @@ namespace Docker.PowerShell.Cmdlets
             var names = new List<string>(ParameterResolvers.GetImageIds(Image, ImageIdOrName));
 
             using (var fs = File.Create(filePath))
+
+            throw new System.NotImplementedException();
+            /* FIXME
             using (var stream = await DkrClient.Miscellaneous.GetImagesAsTarballAsync(names.ToArray(), CmdletCancellationToken))
             using (CmdletCancellationToken.Register(() => stream.Dispose()))
             {
                 await stream.CopyToAsync(fs);
             }
+            */
         }
 
         #endregion

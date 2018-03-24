@@ -42,6 +42,9 @@ namespace Docker.PowerShell.Cmdlets
         {
             string repoTag = null;
             bool failed = false;
+
+            throw new System.NotImplementedException();
+            /* FIXME
             var pullTask = DkrClient.Images.PullImageAsync(new ImagesPullParameters() { All = All, Parent = Repository, Tag = Tag ?? "latest", }, Authorization);
             var messageWriter = new JsonMessageWriter(this);
 
@@ -88,6 +91,7 @@ namespace Docker.PowerShell.Cmdlets
             {
                 throw new Exception("Could not find image, but no error was returned");
             }
+            */
         }
 
         #endregion

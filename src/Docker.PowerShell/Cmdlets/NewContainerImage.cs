@@ -116,6 +116,9 @@ namespace Docker.PowerShell.Cmdlets
                 };
 
                 var progressReader = new ProgressReader(reader, progress, 512 * 1024);
+
+                throw new System.NotImplementedException();
+                /* FIXME
                 var buildTask = DkrClient.Miscellaneous.BuildImageFromDockerfileAsync(progressReader, parameters, CmdletCancellationToken);
                 var messageWriter = new JsonMessageWriter(this);
 
@@ -158,6 +161,7 @@ namespace Docker.PowerShell.Cmdlets
                 {
                     throw new Exception("Could not find image, but no error was returned");
                 }
+                */
             }
         }
 

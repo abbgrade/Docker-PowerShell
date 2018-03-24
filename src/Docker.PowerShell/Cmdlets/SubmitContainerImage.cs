@@ -56,6 +56,9 @@ namespace Docker.PowerShell.Cmdlets
                 repoTag = Image.RepoTags[0];
             }
 
+
+            throw new System.NotImplementedException();
+            /* FIXME
             var pushTask = DkrClient.Images.PushImageAsync(repoTag, new ImagePushParameters(), Authorization);
             var messageWriter = new JsonMessageWriter(this);
 
@@ -78,6 +81,7 @@ namespace Docker.PowerShell.Cmdlets
             {
                 WriteObject((await ContainerOperations.GetImagesByRepoTag(repoTag, DkrClient)).Single());
             }
+            */
         }
 
         #endregion
