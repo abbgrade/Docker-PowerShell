@@ -29,7 +29,7 @@ namespace Docker.PowerShell.Cmdlets
             using (var fs = File.Create(filePath))
 
             throw new System.NotImplementedException();
-            /* FIXME
+            /* TODO: Find replacement for Miscellaneous.GetImagesAsTarballAsync
             using (var stream = await DkrClient.Miscellaneous.GetImagesAsTarballAsync(names.ToArray(), CmdletCancellationToken))
             using (CmdletCancellationToken.Register(() => stream.Dispose()))
             {

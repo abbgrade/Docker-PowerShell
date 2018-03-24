@@ -43,8 +43,8 @@ namespace Docker.PowerShell.Cmdlets
             string repoTag = null;
             bool failed = false;
 
-            throw new System.NotImplementedException();
-            /* FIXME
+            throw new NotImplementedException();
+            /* TODO: Find replacement for Images.PullImageAsync
             var pullTask = DkrClient.Images.PullImageAsync(new ImagesPullParameters() { All = All, Parent = Repository, Tag = Tag ?? "latest", }, Authorization);
             var messageWriter = new JsonMessageWriter(this);
 

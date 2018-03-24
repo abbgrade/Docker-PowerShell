@@ -10,15 +10,11 @@ namespace Docker.PowerShell.Cmdlets
     {
         protected override async Task ProcessRecordAsync()
         {
-
-            throw new System.NotImplementedException();
-            /* FIXME
             foreach (var id in ParameterResolvers.GetNetworkIds(Network, Id))
             {
                 var n = await DkrClient.Networks.InspectNetworkAsync(id);
                 this.WriteObject(n);
             }
-            */
         }
     }
 }

@@ -41,8 +41,8 @@ namespace Docker.PowerShell.Cmdlets
                 using (var file = File.OpenRead(filePath))
                 {
 
-                    throw new System.NotImplementedException();
-                    /* FIXME
+                    throw new NotImplementedException();
+                    /* TODO: Find replacement for Miscellaneous.LoadImageFromTarball
                     var loadTask = DkrClient.Miscellaneous.LoadImageFromTarball(file, new ImageLoadParameters { Quiet = false }, CmdletCancellationToken);
 
                     var messageWriter = new JsonMessageWriter(this);

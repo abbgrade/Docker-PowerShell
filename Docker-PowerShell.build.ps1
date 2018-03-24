@@ -13,7 +13,7 @@ task Build {
 }
 
 task Test {
-    Invoke-Pester -Script test/pester -PesterOption @{ IncludeVSCodeMarker=$true }
+    Invoke-Pester -Script test/pester -PesterOption @{ IncludeVSCodeMarker = $true }
 }
 
 task Clean {

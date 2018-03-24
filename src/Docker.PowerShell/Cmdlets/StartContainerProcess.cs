@@ -62,11 +62,8 @@ namespace Docker.PowerShell.Cmdlets
         protected override async Task ProcessRecordAsync()
         {
             var id = ContainerIdOrName ?? Container.ID;
-
-            throw new System.NotImplementedException();
-            /* FIXME
-            var execConfig = new ExecConfig()
-            {
+            
+            var procCreateResponse = await DkrClient.Containers.ExecCreateContainerAsync(id, new ContainerExecCreateParameters() {
                 Cmd = Command,
                 Privileged = Privileged,
                 User = User,
@@ -75,9 +72,7 @@ namespace Docker.PowerShell.Cmdlets
                 AttachStderr = !Detached,
                 Detach = Detached,
                 Tty = Terminal,
-            };
-
-            var procCreateResponse = await DkrClient.Containers.ExecCreateContainerAsync(id, new ContainerExecCreateParameters(execConfig));
+            });
 
             if (Detached)
             {
@@ -86,12 +81,20 @@ namespace Docker.PowerShell.Cmdlets
             }
             else
             {
-                using (var stream = await DkrClient.Containers.StartWithConfigContainerExecAsync(procCreateResponse.ID, execConfig, CmdletCancellationToken))
+                using (var stream = await DkrClient.Containers.StartWithConfigContainerExecAsync(procCreateResponse.ID, new ContainerExecStartParameters() {
+                    Cmd = Command,
+                    Privileged = Privileged,
+                    User = User,
+                    AttachStdin = !Detached && Input,
+                    AttachStdout = !Detached,
+                    AttachStderr = !Detached,
+                    Detach = Detached,
+                    Tty = Terminal,
+                }, CmdletCancellationToken))
                 {
                     await stream.CopyToConsoleAsync(Terminal, Input, CmdletCancellationToken);
                 }
             }
-            */
         }
 
         #endregion
