@@ -21,7 +21,7 @@ namespace Docker.PowerShell.Cmdlets
                    Position = 0,
                    Mandatory = true)]
         [ValidateNotNullOrEmpty]
-        public IList<NetworkResponse>[] Network { get; set; }
+        public IList<NetworkResponse> Network { get; set; }
 
         #endregion
     }

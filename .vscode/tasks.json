@@ -21,6 +21,7 @@
         {
             "label": "Build",
             "type": "shell",
+            "group": "build",
             "command": "Invoke-Build Build",
             "problemMatcher": []
         }
