@@ -108,7 +108,7 @@ Describe "Build-ContainerImage - Test matrix of types and hosts." {
 
     It "Use Type" {
         $type = Get-TypeData -TypeName "Docker.PowerShell"
-        $type | Should -Not $null 
+        $type | Should Be 
     }
 
     It "WindowsServerCore_Image_Build" -Skip:$(Test-Client -or Test-Nano) {

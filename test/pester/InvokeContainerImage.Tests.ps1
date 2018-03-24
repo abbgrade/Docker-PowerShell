@@ -28,7 +28,7 @@ function TestInvokeContainerImage
 
     try 
     {
-        $container = Invoke-ContainerImage -Id "$ImageName" -Isolation $isolation -Command @("cmd", "/c", "echo Worked") -PassThru
+        $container = Invoke-ContainerImage -ImageName "$ImageName" -Isolation $isolation -Command @("cmd", "/c", "echo Worked") -PassThru
         $container | Should Not Be $null
         # TODO: How to test that output is "Worked"?
     }

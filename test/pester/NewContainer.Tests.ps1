@@ -29,7 +29,7 @@ function TestNewContainer
 
     try 
     {
-        $container = New-Container -Id "$ImageName" -Isolation $isolation -Command @("cmd", "/c", "echo Worked")
+        $container = New-Container -ImageName "$ImageName" -Isolation $isolation -Command @("cmd", "/c", "echo Worked")
         $container | Should Not Be $null
     }
     finally

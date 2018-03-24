@@ -23,6 +23,7 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+[Cc]lr/
 
 #exception to the .gitignore
 

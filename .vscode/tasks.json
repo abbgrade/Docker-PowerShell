@@ -4,12 +4,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Update GIT submodules",
-            "type": "shell",
-            "command": "git submodule update --remote",
-            "problemMatcher": []
-        },
-        {
             "label": "Run tests",
             "type": "shell",
             "group": "test",
@@ -22,6 +16,12 @@
             "label": "Clean build",
             "type": "shell",
             "command": "Invoke-Build Clean",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "Invoke-Build Build",
             "problemMatcher": []
         }
     ]
