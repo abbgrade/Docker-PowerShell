@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Management.Automation;
 using System.Threading.Tasks;
 using Docker.DotNet.Models;
@@ -7,7 +8,7 @@ namespace Docker.PowerShell.Cmdlets
 {
     [Cmdlet(VerbsCommon.Get, "ContainerNet",
             DefaultParameterSetName = CommonParameterSetNames.NetworkName)]
-    [OutputType(typeof(NetworkListResponse))]
+    [OutputType(typeof(IList<NetworkResponse>))]
     public class GetContainerNet : DkrCmdlet
     {
         [Parameter(ParameterSetName = CommonParameterSetNames.Default,

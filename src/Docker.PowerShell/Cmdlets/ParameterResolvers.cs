@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Docker.DotNet.Models;
 
 namespace Docker.PowerShell.Cmdlets
@@ -43,7 +44,7 @@ namespace Docker.PowerShell.Cmdlets
         /// <param name="networks">The list of network objects to get values from.</param>
         /// <param name="ids">The list of ids.</param>
         /// <returns>List of IDs to process.</returns>
-        internal static string[] GetNetworkIds(NetworkListResponse[] networks, string[] ids)
+        internal static string[] GetNetworkIds(IList<NetworkResponse> networks, string[] ids)
         {
             if (ids != null && ids.Length != 0)
             {

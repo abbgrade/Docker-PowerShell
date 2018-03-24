@@ -7,7 +7,7 @@ namespace Docker.PowerShell.Objects
 
     internal static class NetworkOperations
     {
-        internal static Task<IList<NetworkListResponse>> GetNetworksById(string id, DotNet.DockerClient dkrClient)
+        internal static Task<IList<NetworkResponse>> GetNetworksById(string id, DotNet.DockerClient dkrClient)
         {
             return (dkrClient.Networks.ListNetworksAsync(new NetworksListParameters
             {
@@ -22,7 +22,7 @@ namespace Docker.PowerShell.Objects
             }));
         }
 
-        internal static Task<IList<NetworkListResponse>> GetNetworksByName(string name, DotNet.DockerClient dkrClient)
+        internal static Task<IList<NetworkResponse>> GetNetworksByName(string name, DotNet.DockerClient dkrClient)
         {
             return (dkrClient.Networks.ListNetworksAsync(new NetworksListParameters
             {

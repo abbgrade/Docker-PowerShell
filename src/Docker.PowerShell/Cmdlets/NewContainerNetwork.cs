@@ -9,7 +9,7 @@ namespace Docker.PowerShell.Cmdlets
 {
     [Cmdlet(VerbsCommon.New, "ContainerNet",
             DefaultParameterSetName = CommonParameterSetNames.Default)]
-    [OutputType(typeof(NetworkListResponse))]
+    [OutputType(typeof(IList<NetworkResponse>))]
     public class NewContainerNet : DkrCmdlet
     {
         #region Parameters
