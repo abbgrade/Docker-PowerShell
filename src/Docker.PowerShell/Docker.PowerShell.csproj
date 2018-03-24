@@ -16,14 +16,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Docker.DotNet" Version="3.125.1.100" />
+    <PackageReference Include="Docker.DotNet.BasicAuth" Version="3.125.1.100" />
+    <PackageReference Include="Docker.DotNet.X509" Version="3.125.1.100" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Docker.psd1;Docker.psm1;Docker.Format.ps1xml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Docker.DotNet\Docker.DotNet.X509\Docker.DotNet.X509.csproj" />
-    <ProjectReference Include="..\Docker.DotNet\Docker.DotNet\Docker.DotNet.csproj" />
     <ProjectReference Include="..\Tar\Tar.csproj" />
   </ItemGroup>
 

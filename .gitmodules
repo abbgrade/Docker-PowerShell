@@ -1,4 +1,0 @@
-[submodule "src/Docker.DotNet"]
-	path = src/Docker.DotNet
-	url = https://github.com/Microsoft/Docker.DotNet.git
-	branch = master

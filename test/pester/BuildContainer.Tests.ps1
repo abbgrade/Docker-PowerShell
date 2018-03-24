@@ -4,13 +4,8 @@
 
 #>
 
-
-if (( Get-Item ( Get-Location )).Name -eq "Docker-PowerShell" ) {
-	$pwd = Join-Path ( Get-Location ), "test/pester"
-} else {
-	$pwd = ( Get-Item $MyInvocation.InvocationName ).Directory.FullName
-}
-. ( Join-Path $pwd Utils.ps1 )
+Import-Module .\src\Docker.PowerShell\Docker.psm1 -Force
+. .\test\pester\Utils.ps1
 
 function CreateDockerfile
 {
@@ -110,6 +105,12 @@ function TestImageBuilds
 }
 
 Describe "Build-ContainerImage - Test matrix of types and hosts." {
+
+    It "Use Type" {
+        $type = Get-TypeData -TypeName "Docker.PowerShell"
+        $type | Should -Not $null 
+    }
+
     It "WindowsServerCore_Image_Build" -Skip:$(Test-Client -or Test-Nano) {
         { TestImageBuilds $global:WindowsServerCore $false } | Should Not Throw
     }

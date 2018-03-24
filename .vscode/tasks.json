@@ -1,144 +1,28 @@
-// Available variables which can be used inside of strings.
-// ${workspaceRoot}: the root folder of the team
-// ${file}: the current opened file
-// ${fileBasename}: the current opened file's basename
-// ${fileDirname}: the current opened file's dirname
-// ${fileExtname}: the current opened file's extension
-// ${cwd}: the current working directory of the spawned process
 {
-	"version": "0.1.0",
-	"command": "cmd",
-	"isShellCommand": true,
-	"showOutput": "silent",
-	"args": [
-		"/c"
-	],
-	"tasks": [
-		{
-			"taskName": "restore",
-			"suppressTaskName": true,
-			"args": [
-				"dotnet",
-				"restore"
-			],
-			"showOutput": "always",
-			"problemMatcher": "$msCompile"
-		},
-		{
-			"taskName": "build",
-			"suppressTaskName": true,
-			"args": [
-				"dotnet",
-				"publish",
-				"${cwd}\\src\\Docker.PowerShell",
-				"-f",
-				"net46",
-				"-o",
-				"${cwd}\\src\\Docker.PowerShell\\bin\\Module\\Docker\\clr",
-				"&&",
-				"dotnet",
-				"publish",
-				"${cwd}\\src\\Docker.PowerShell",
-				"-f",
-				"netstandard1.6",
-				"-o",
-				"${cwd}\\src\\Docker.PowerShell\\bin\\Module\\Docker\\coreclr",
-				"&&",
-				"nuget",
-				"install",
-				"Newtonsoft.Json",
-				"-Version",
-				"9.0.1",
-				"-OutputDirectory",
-				"${cwd}\\src\\Docker.PowerShell\\bin\\Module",
-				"&&",
-				"copy",
-				"${cwd}\\src\\Docker.PowerShell\\bin\\Module\\Docker\\coreclr\\Docker.psd1",
-				"${cwd}\\src\\Docker.PowerShell\\bin\\Module\\Docker\\Docker.psd1",
-				"&&",
-				"copy",
-				"${cwd}\\src\\Docker.PowerShell\\bin\\Module\\Docker\\coreclr\\Docker.psm1",
-				"${cwd}\\src\\Docker.PowerShell\\bin\\Module\\Docker\\Docker.psm1",
-				"&&",
-				"copy",
-				"${cwd}\\src\\Docker.PowerShell\\bin\\Module\\Docker\\coreclr\\Docker.Format.ps1xml",
-				"${cwd}\\src\\Docker.PowerShell\\bin\\Module\\Docker\\Docker.Format.ps1xml",
-				"&&",
-				"copy",
-				"\"${cwd}\\src\\Docker.PowerShell\\bin\\Module\\Newtonsoft.Json.9.0.1\\lib\\portable-net45+wp80+win8+wpa81\\Newtonsoft.Json.dll\"",
-				"${cwd}\\src\\Docker.PowerShell\\bin\\Module\\Docker\\coreclr\\Newtonsoft.Json.dll",
-				"&&",
-				"powershell",
-				"-executionpolicy",
-				"bypass",
-				"-c",
-				"New-ExternalHelp",
-				"-Path",
-				"${cwd}\\src\\Docker.PowerShell\\Help",
-				"-OutputPath",
-				"${cwd}\\src\\Docker.PowerShell\\bin\\Module\\Docker\\en-US",
-				"-Force"
-			],
-			"showOutput": "always",
-			"isBuildCommand": true,
-			"problemMatcher": "$msCompile"
-		},
-		{
-			"taskName": "test",
-			"suppressTaskName": true,
-			"args": [
-				"start",
-				"powershell",
-				"-executionpolicy",
-				"bypass",
-				"-noexit",
-				"-c",
-				"ipmo",
-				".\\src\\Docker.PowerShell\\bin\\Module\\Docker"
-			],
-			"showOutput": "never",
-			"isTestCommand": true
-		},
-		{
-			"taskName": "clean",
-			"suppressTaskName": true,
-			"args": [
-				"del",
-				"/Q",
-				"/S",
-				".\\src\\*project.lock.json",
-				"&&",
-				"rmdir",
-				"/Q",
-				"/S",
-				".\\src\\Docker.PowerShell\\bin"
-			],
-			"showOutput": "always"
-		},
-		{
-			"taskName": "update-help",
-			"suppressTaskName": true,
-			"args": [
-				"powershell",
-				"-executionpolicy",
-				"bypass",
-				"-c",
-				"ipmo",
-				".\\src\\Docker.PowerShell\\bin\\Module\\Docker",
-				";",
-				"New-MarkdownHelp",
-				"-Module",
-				"Docker",
-				"-OutputFolder",
-				".\\src\\Docker.PowerShell\\Help",
-				"-ErrorAction",
-				"SilentlyContinue",
-				";",
-				"Update-MarkdownHelp",
-				"-Path",
-				".\\src\\Docker.PowerShell\\Help"
-			],
-			"showOutput": "always"
-		}
-	]
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Update GIT submodules",
+            "type": "shell",
+            "command": "git submodule update --remote",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run tests",
+            "type": "shell",
+            "group": "test",
+            "command": "Invoke-Pester -Script test/pester -PesterOption @{IncludeVSCodeMarker=$true}",
+            "problemMatcher": [
+                "$pester"
+            ]
+        },
+        {
+            "label": "Clean build",
+            "type": "shell",
+            "command": "Invoke-Build Clean",
+            "problemMatcher": []
+        }
+    ]
 }
