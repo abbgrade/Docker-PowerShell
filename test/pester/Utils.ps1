@@ -39,20 +39,6 @@ function New-TempTestPath
     return $path
 }
 
-function Test-ImportedModule
-{
-    param(
-        [string]
-        [ValidateNotNullOrEmpty()]
-        $ModuleName
-    )
-
-    if (-not(Get-Module -Name "$ModuleName"))
-    {
-        Import-Module -Name "$ModuleName" -ErrorAction SilentlyContinue
-    }
-}
-
 if (Test-Nano)
 {
     $global:DefaultContainerImageName = $global:NanoServer

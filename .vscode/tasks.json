@@ -7,7 +7,7 @@
             "label": "test",
             "type": "shell",
             "group": "test",
-            "command": "Invoke-Pester -Script test/pester -PesterOption @{IncludeVSCodeMarker=$true}",
+            "command": "$DebugPreference = 'Continue'; Invoke-Pester -Script test/pester -PesterOption @{ IncludeVSCodeMarker = $true }",
             "problemMatcher": [
                 "$pester"
             ]

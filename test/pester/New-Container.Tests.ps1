@@ -7,7 +7,7 @@
 Import-Module .\bin\Module\Docker\Docker.psm1 -Force
 . .\test\pester\\Utils.ps1
 
-function TestNewContainer
+function Test-NewContainer
 {
     param(
         [string]
@@ -17,9 +17,6 @@ function TestNewContainer
         [bool]
         $IsIsolated
     )
-
-    # We need to module imported so we can create the types before invocation.
-    Test-ImportedModule "Docker"
 
     $isolation = [Docker.PowerShell.Objects.IsolationType]::Default
     if ($IsIsolated)
@@ -44,18 +41,18 @@ function TestNewContainer
 
 Describe "New-Container - Test matrix of types and hosts." {
     It "Create_WindowsServerCore" -Skip:$(Test-Client -or Test-Nano) {
-        { TestNewContainer $global:WindowsServerCore $false } | Should Not Throw
+        { Test-NewContainer $global:WindowsServerCore $false } | Should Not Throw
     }
 
     It "Create_WindowsServerCore_Isolated" {
-        { TestNewContainer $global:WindowsServerCore $true } | Should Not Throw
+        { Test-NewContainer $global:WindowsServerCore $true } | Should Not Throw
     }
 
     It "Create_NanoServer" -Skip:$(Test-Client) {
-        { TestNewContainer $global:NanoServer $false } | Should Not Throw
+        { Test-NewContainer $global:NanoServer $false } | Should Not Throw
     }
 
     It "Create_NanoServer_Isolated" {
-        { TestNewContainer $global:NanoServer $true } | Should Not Throw
+        { Test-NewContainer $global:NanoServer $true } | Should Not Throw
     }
 }

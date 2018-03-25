@@ -7,7 +7,7 @@
 Import-Module .\bin\Module\Docker\Docker.psm1 -Force
 . .\test\pester\Utils.ps1
 
-function CreateDockerfile
+function New-Dockerfile
 {
     param(
         [string]
@@ -20,15 +20,15 @@ function CreateDockerfile
     )
 
     $filepath = Join-Path $BasePath "Dockerfile"
-    Write-Host "Creating dockerfile at path: '$filepath'."
+    Write-Debug "Creating dockerfile at path: '$filepath'."
 
     "FROM $ImageName" | Out-File -FilePath $filePath -Encoding utf8 -Append 
     "RUN echo test > test.txt" | Out-File -FilePath $filePath -Encoding utf8 -Append
 
-    Write-Host "Successfully created dockerfile."
+    Write-Debug "Successfully created dockerfile."
 }
 
-function TestImageBuild
+function Test-ImageBuild
 {
     param(
         [string]
@@ -42,12 +42,9 @@ function TestImageBuild
         [ValidateNotNullOrEmpty()]
         $Tag
     )
-
-	# We need to module imported so we can create the types before invocation.
-    Test-ImportedModule "Docker"
 	
     $basePath = New-TempTestPath
-    CreateDockerfile $basePath $ImageName
+    New-Dockerfile $basePath $ImageName
 
     $isolation = [Docker.PowerShell.Objects.IsolationType]::Default
     if ($IsIsolated)
@@ -55,11 +52,11 @@ function TestImageBuild
         $isolation = [Docker.PowerShell.Objects.IsolationType]::HyperV
     }
     
-    Write-Host "Building image: '$Tag'"
+    Write-Debug "Building image: '$Tag'"
     Build-ContainerImage -Path "$basePath" -Repository "$Tag" -SkipCache -Isolation $isolation
 }
 
-function TestImageBuilds
+function Test-ImageBuilds
 {
     param(
         [string]
@@ -82,11 +79,11 @@ function TestImageBuilds
     try
     {
         # Test a level 1 build.
-        $image = TestImageBuild "$ImageName" $IsIsolated "$firstTag"
+        $image = Test-ImageBuild "$ImageName" $IsIsolated "$firstTag"
         $image | Should Not Be $null
 
         # Test a second build based on the first.
-        $image2 = TestImageBuild "$firstTag" $IsIsolated "$secondTag"
+        $image2 = Test-ImageBuild "$firstTag" $IsIsolated "$secondTag"
         $image2 | Should Not Be $null
     }
     finally
@@ -111,19 +108,19 @@ Describe "Build-ContainerImage - Test matrix of types and hosts." {
         $type | Should Be 
     }
 
-    It "WindowsServerCore_Image_Build" -Skip:$(Test-Client -or Test-Nano) {
-        { TestImageBuilds $global:WindowsServerCore $false } | Should Not Throw
+    It "WindowsServerCore_Image_Build" -Skip:$( Test-Client -or Test-Nano ) {
+        { Test-ImageBuilds $global:WindowsServerCore $false } | Should Not Throw
     }
 
     It "WindowsServerCore_Isolated_Image_Build" {
-        { TestImageBuilds $global:WindowsServerCore $true } | Should Not Throw
+        { Test-ImageBuilds $global:WindowsServerCore $true } | Should Not Throw
     }
 
-    It "NanoServer_Image_Build" -Skip:$(Test-Client) {
-        { TestImageBuilds $global:NanoServer $false } | Should Not Throw
+    It "NanoServer_Image_Build" -Skip:$( Test-Client ) {
+        { Test-ImageBuilds $global:NanoServer $false } | Should Not Throw
     }
 
     It "NanoServer_Isolated_Image_Build" {
-        { TestImageBuilds $global:NanoServer $true } | Should Not Throw
+        { Test-ImageBuilds $global:NanoServer $true } | Should Not Throw
     }
 }

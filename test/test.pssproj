@@ -3,9 +3,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>6CAFC0C6-A428-4d30-A9F9-700E829FEA51</ProjectGuid>
-    <OutputType></OutputType>
-    <RootNamespace></RootNamespace>
-    <AssemblyName></AssemblyName>
+    <OutputType>
+    </OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>
+    </AssemblyName>
     <Name>test</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -29,10 +32,10 @@
     <Folder Include="pester\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="pester\BuildContainer.Tests.ps1" />
-    <Compile Include="pester\InvokeContainerImage.Tests.ps1" />
-    <Compile Include="pester\NewContainer.Tests.ps1" />
-    <Compile Include="pester\StartContainer.Tests.ps1" />
+    <Compile Include="pester\Build-Container.Tests.ps1" />
+    <Compile Include="pester\Invoke-ContainerImage.Tests.ps1" />
+    <Compile Include="pester\New-Container.Tests.ps1" />
+    <Compile Include="pester\Start-Container.Tests.ps1" />
     <Compile Include="pester\Utils.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

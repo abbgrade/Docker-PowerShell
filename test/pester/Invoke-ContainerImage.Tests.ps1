@@ -6,7 +6,7 @@
 Import-Module .\bin\Module\Docker\Docker.psm1 -Force
 . .\test\pester\\Utils.ps1
 
-function TestInvokeContainerImage
+function Test-InvokeContainerImage
 {
     param(
         [string]
@@ -17,9 +17,6 @@ function TestInvokeContainerImage
         $IsIsolated
     )
 
-    # We need to module imported so we can create the types before invocation.
-    Test-ImportedModule "Docker"
-
     $isolation = [Docker.PowerShell.Objects.IsolationType]::Default
     if ($IsIsolated)
     {
@@ -28,7 +25,7 @@ function TestInvokeContainerImage
 
     try 
     {
-        $container = Invoke-ContainerImage -ImageName "$ImageName" -Isolation $isolation -Command @("cmd", "/c", "echo Worked") -PassThru
+        $container = Invoke-ContainerImage -ImageName $ImageName -Isolation $isolation -Command @("cmd", "/c", "echo Worked") -PassThru
         $container | Should Not Be $null
         # TODO: How to test that output is "Worked"?
     }
@@ -44,19 +41,19 @@ function TestInvokeContainerImage
 
 Describe "Invoke-ContainerImage - Test matrix of types and hosts." {
     It "Invoke_WindowsServerCore" -Skip:$(Test-Client -or Test-Nano) {
-        { TestInvokeContainerImage $global:WindowsServerCore $false } | Should Not Throw
+        { Test-InvokeContainerImage $global:WindowsServerCore $false } | Should Not Throw
     }
 
     It "Invoke_WindowsServerCore_Isolated" {
-        { TestInvokeContainerImage $global:WindowsServerCore $true } | Should Not Throw
+        { Test-InvokeContainerImage $global:WindowsServerCore $true } | Should Not Throw
     }
 
     It "Invoke_NanoServer" -Skip:$(Test-Client) {
-        { TestInvokeContainerImage $global:NanoServer $false } | Should Not Throw
+        { Test-InvokeContainerImage $global:NanoServer $false } | Should Not Throw
     }
 
     It "Invoke_NanoServer_Isolated" {
-        { TestInvokeContainerImage $global:NanoServer $true } | Should Not Throw
+        { Test-InvokeContainerImage $global:NanoServer $true } | Should Not Throw
     }
 }
 
