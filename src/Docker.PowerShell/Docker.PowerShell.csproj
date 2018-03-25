@@ -3,10 +3,9 @@
   <PropertyGroup>
     <Description>Docker.PowerShell Cmdlet Library</Description>
     <VersionPrefix>0.1.0</VersionPrefix>
-    <TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net46;netcoreapp2.0</TargetFrameworks>
     <AssemblyName>Docker.PowerShell</AssemblyName>
     <PackageId>Docker.PowerShell</PackageId>
-    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.6' ">$(PackageTargetFallback);portable-net45+win8</PackageTargetFallback>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
@@ -19,6 +18,8 @@
     <PackageReference Include="Docker.DotNet" Version="3.125.1.100" />
     <PackageReference Include="Docker.DotNet.BasicAuth" Version="3.125.1.100" />
     <PackageReference Include="Docker.DotNet.X509" Version="3.125.1.100" />
+    <PackageReference Include="Microsoft.PowerShell.5.ReferenceAssemblies" Version="1.1.0" />
+    <PackageReference Include="System.Runtime" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,18 +30,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Tar\Tar.csproj" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
-    <PackageReference Include="Microsoft.PowerShell.SDK" Version="1.0.0-alpha9" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
-    <PackageReference Include="Microsoft.PowerShell.5.ReferenceAssemblies" Version="1.0.0">
-      <PrivateAssets>All</PrivateAssets>
-    </PackageReference>
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
 
 </Project>

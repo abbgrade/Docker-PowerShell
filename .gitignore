@@ -24,6 +24,7 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Cc]lr/
+[Cc]oreclr/
 
 #exception to the .gitignore
 

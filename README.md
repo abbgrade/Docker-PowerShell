@@ -89,18 +89,14 @@ and the [Windows SDK for Windows 8 with .NET Framework 4.5](https://developer.mi
 
 Once these are installed, you can run:
 
-    > dotnet restore
-
-    > dotnet publish .\src\Docker.PowerShell -o .\src\Docker.PowerShell\bin\Module\Docker -f net46
+    > Invoke-Build PublishFramework
 
 or for a module targetted at cross-platform PowerShell:
 
-    > dotnet restore
-
-    > dotnet publish .\src\Docker.PowerShell -o .\src\Docker.PowerShell\bin\Module\Docker -f netstandard1.6
+    > Invoke-Build PublishStandard
 
 This will produce the PowerShell module at
-`.\src\Docker.PowerShell\bin\Module\Docker` in the project folder.
+`.\bin\Module\Docker` in the project folder.
 
 You will only need to run `dotnet restore` once unless you pull changes that
 update the project dependencies in project.json.
@@ -114,9 +110,7 @@ made to the structure or behavior of the cmdlets.  Follow the instructions on th
 platyPS github readme to get the module installed, and then after imported the
 Docker module with your changes compiled in, run:
 
-    > New-MarkdownHelp -Module Docker -OutputFolder .\src\Docker.Powershell\Help -ErrorAction SilentlyContinue
-
-    > Update-MarkdownHelp -Path .\src\Docker.PowerShell\Help
+    > Invoke-Build UpdateHelp
 
 This will create new entries for any added parameters in existing cmdlets, as well as
 new markdown files for any new cmdlets, leaving placeholder text for the descriptions

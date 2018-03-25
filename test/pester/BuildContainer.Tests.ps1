@@ -4,7 +4,7 @@
 
 #>
 
-Import-Module .\src\Docker.PowerShell\Docker.psm1 -Force
+Import-Module .\bin\Module\Docker\Docker.psm1 -Force
 . .\test\pester\Utils.ps1
 
 function CreateDockerfile

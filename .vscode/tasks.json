@@ -19,10 +19,16 @@
             "problemMatcher": []
         },
         {
+            "label": "restore",
+            "type": "shell",
+            "command": "Invoke-Build Restore",
+            "problemMatcher": []
+        },
+        {
             "label": "build",
             "type": "shell",
             "group": "build",
-            "command": "Invoke-Build Build",
+            "command": "Invoke-Build PublishFramework",
             "problemMatcher": []
         },
         {
