@@ -28,7 +28,7 @@
             "label": "build",
             "type": "shell",
             "group": "build",
-            "command": "Invoke-Build PublishFramework",
+            "command": "Invoke-Build PublishStandard",
             "problemMatcher": []
         },
         {
